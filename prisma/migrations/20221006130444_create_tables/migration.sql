@@ -1,0 +1,38 @@
+-- CreateTable
+CREATE TABLE "DB_USERS" (
+    "id" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "password" TEXT NOT NULL,
+    "created_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "DB_USERS_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "DB_CATEGORIES" (
+    "id" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
+    "created_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "DB_CATEGORIES_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "DB_PRODUCTS" (
+    "id" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
+    "price" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
+    "banner" TEXT NOT NULL,
+    "created_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+    "category_id" TEXT NOT NULL,
+
+    CONSTRAINT "DB_PRODUCTS_pkey" PRIMARY KEY ("id")
+);
+
+-- AddForeignKey
+ALTER TABLE "DB_PRODUCTS" ADD CONSTRAINT "DB_PRODUCTS_category_id_fkey" FOREIGN KEY ("category_id") REFERENCES "DB_CATEGORIES"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
