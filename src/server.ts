@@ -5,7 +5,6 @@ import path from 'path';
 
 import { router } from './routes'
 
-const port = 3300;
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -30,6 +29,6 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     })
 })
 
-app.listen(port, () => {
-    console.log(`Servidor inicializado na porta ${port}...`)
+app.listen(process.env.PORT, () => {
+    console.log(`Servidor inicializado na porta ${process.env.PORT}...`)
 });
