@@ -29,7 +29,10 @@ class ProductService {
                 category_id: category_id
             }, select: {
                 name: true,
-                price: true
+                price: true,
+                description: true,
+                banner: true,
+                category_id: true
             }
         })
         return prod;
