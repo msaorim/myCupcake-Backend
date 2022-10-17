@@ -20,7 +20,8 @@ class ProductConstroller {
                 throw new Error("Erro no arquivo de imagem!!!");
             }
             else {
-                const { filename: banner } = req.file;
+                const { filename: img_name } = req.file;
+                const banner = `https://my-cupcake.herokuapp.com/files/${img_name}`;
                 const obj = yield serv.create({
                     name,
                     price,
